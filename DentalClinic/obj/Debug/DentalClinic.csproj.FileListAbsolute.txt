@@ -1,0 +1,14 @@
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\bin\Debug\DentalClinic.exe.config
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\bin\Debug\DentalClinic.exe
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\bin\Debug\DentalClinic.pdb
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.csprojResolveAssemblyReference.cache
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\MainWindow.g.cs
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\App.g.cs
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic_MarkupCompile.cache
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic_MarkupCompile.lref
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\MainWindow.baml
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.g.resources
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.Properties.Resources.resources
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.csproj.GenerateResource.Cache
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.exe
+C:\Users\Michał\Documents\DentalClinic\DentalClinic\obj\Debug\DentalClinic.pdb
