@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label x:Name="label" Content="Dlaczego żona hazardzisty nie może wyjechać z garażu?" HorizontalAlignment="Left" Margin="31,37,0,0" VerticalAlignment="Top" Width="461"/>
+        <Button x:Name="button" Content="Pokaż odpowiedź" HorizontalAlignment="Left" Margin="31,85,0,0" VerticalAlignment="Top" Width="110" Click="button_Click"/>
+
     </Grid>
 </Window>
