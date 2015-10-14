@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DentalClinic.Properties
+namespace DentalClinic.UI.Properties
 {
 
 

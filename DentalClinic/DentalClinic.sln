@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinic", "DentalClinic.csproj", "{85B9890F-FDE6-4D9E-99B1-833A03ABE671}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinic.Data", "DentalClinic.Data\DentalClinic.Data.csproj", "{745898D7-F40E-46C2-A6FC-BA7B8EF48CFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinic.Services", "DentalClinic.Services\DentalClinic.Services.csproj", "{FED2C01F-846F-40DB-AA13-5470E3F63CB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinic.Tests", "DentalClinic.Tests\DentalClinic.Tests.csproj", "{BF97B13F-2988-462C-A580-291E1DF421A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{85B9890F-FDE6-4D9E-99B1-833A03ABE671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85B9890F-FDE6-4D9E-99B1-833A03ABE671}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85B9890F-FDE6-4D9E-99B1-833A03ABE671}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85B9890F-FDE6-4D9E-99B1-833A03ABE671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745898D7-F40E-46C2-A6FC-BA7B8EF48CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745898D7-F40E-46C2-A6FC-BA7B8EF48CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745898D7-F40E-46C2-A6FC-BA7B8EF48CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745898D7-F40E-46C2-A6FC-BA7B8EF48CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED2C01F-846F-40DB-AA13-5470E3F63CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED2C01F-846F-40DB-AA13-5470E3F63CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED2C01F-846F-40DB-AA13-5470E3F63CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED2C01F-846F-40DB-AA13-5470E3F63CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF97B13F-2988-462C-A580-291E1DF421A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF97B13F-2988-462C-A580-291E1DF421A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF97B13F-2988-462C-A580-291E1DF421A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF97B13F-2988-462C-A580-291E1DF421A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
