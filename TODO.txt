@@ -1,0 +1,27 @@
+Pytania:
+
+1. Czy mo¿emy usuwaæ urlopy/zwolnienia/pracowników? Lepiej ustawiæ odpowiednie flagi na wierszach i nie usuwaæ.
+2. Czy pracownik ma wgl¹d do swoich urlopów/zwolnieñ. Tak, ale nie mo¿e ich edytowaæ.
+3. Czy 2 gridy na zwolnienia i urlopy? Tak.
+4. Czy panel administracyjny to tylko dodawanie u¿ytkowników i przypisywanie im ról. Nie, dodatkowo mo¿e edytowaæ tabelê (dodawanie wierszy do s³owników np.).
+5. Czy raporty maj¹ mieæ mo¿liwoœæ exportu do pliku? Tak (pdf).
+7. Jak ma wygl¹daæ planowanie zastêpstw? Przy zwolnieniu sprawdzamy, czy ktoœ mo¿e zast¹piæ pracownika. Je¿eli tak to ta osoba co zastêpuje nie mo¿e zwolniæ siê.
+   Je¿eli nie ma zastêpstwa to pracownik nie mo¿e zwolniæ siê.
+8. Jak wygl¹daj¹ spotkania? W pi¹tek najlepiej od 9:00-10:30. Mo¿na w œrodê, ale mamy zajêcia akurat. Pocz¹tkowo co tydzieñ, potem co 2 tygodnie.
+9. Nie ma punktu 6.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+TODO:
+1. Hierarchia funkcji - co powinien system robiæ, jakie funkcje maj¹ aktorzy, dla 2-ch sytuacji jebn¹æ diagram przypadków u¿ycia.
+2. Hierarchia ról - jacy aktorzy + jakie uprawnienia.
+3. Struktura logiczno-fizyczna bazy danych.
+4. Projekt formatek.
+5. Te 4 wy¿ej wydrukowaæ i do teczki.
+6. Help dla 2-3 funkcji + instrukcja u¿ytkownika (najlepiej razem).
+7. Testy jednostkowe (nie s¹ konieczne, ale mile widziane).
+8. Readme jak uruchomiæ program.
+9. Instalator.
+10. Przynieœæ na p³ytce.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
