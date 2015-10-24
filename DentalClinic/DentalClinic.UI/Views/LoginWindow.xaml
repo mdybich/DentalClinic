@@ -1,0 +1,31 @@
+﻿<Window x:Class="DentalClinic.UI.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
+        xmlns:local="clr-namespace:DentalClinic.UI.Views"
+        mc:Ignorable="d"
+        Title="Klinika dentystyczna - logowanie" Height="150" Width="300">
+    <Window.DataContext>
+        <viewModels:LoginWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Login:" Grid.ColumnSpan="2" Margin="0,0,73.2,21.6" Grid.RowSpan="2" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Hasło:" Grid.ColumnSpan="2" Margin="0,0.4,73.2,3.6" />
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Text="{Binding UserLogin}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Text="{Binding UserPassword}" />
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Content="Zaloguj" Margin="10" Command="{Binding LoginCommand}"></Button>
+    </Grid>
+</Window>
