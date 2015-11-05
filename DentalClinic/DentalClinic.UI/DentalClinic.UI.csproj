@@ -108,9 +108,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DentalClinic.Data\DentalClinic.Data.csproj">
       <Project>{09c51b47-5f01-4c41-b53a-02d687c8d7f3}</Project>
       <Name>DentalClinic.Data</Name>

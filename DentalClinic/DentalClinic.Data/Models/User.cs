@@ -18,6 +18,12 @@ namespace DentalClinic.Data.Models
         public bool IsActive { get; set; }
 
         public int RoleId  { get; set; }
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
+
+        public virtual ICollection<Vacation> Vacations { get; set; }
+        public virtual ICollection<Vacation> SubstituteVacations { get; set; }
+
+        public virtual ICollection<Leave> Leaves { get; set; }
+        public virtual ICollection<Leave> SubstituteLeaves { get; set; }
     }
 }
