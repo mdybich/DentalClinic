@@ -7,16 +7,21 @@ using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
 using DentalClinic.Data.Models;
 using System.Security.Cryptography;
+using DentalClinic.Data;
 
 namespace DentalClinic.Services.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private List<User> users;
+        private DentalClinicContext db = new DentalClinicContext();
 
         public AuthenticationService()
         {
-            users = new List<User>()
+        }
+
+        public UserInfo AuthenticateUser(string userName, string clearTextPassword)
+        {
+            var users = new List<User>()
             {
                 new User()
                 {
@@ -27,20 +32,15 @@ namespace DentalClinic.Services.Services
                     IsActive = true,
                     HashedPassword = @"/rFkWu74lVGMPMCGO6Lt+wuZ2zdW2qACxQimd55Wc2c=",
                     RoleId = 1,
-                    Role = new Role()
-                    {
-                        Id = 1,
-                        Name = "Administrator"
-                    }
                 }
             };
-        }
-        public UserInfo AuthenticateUser(string userName, string clearTextPassword)
-        {
-            var test = CalculateHash("qazwsx", "mdybich");
-            var userData = users.FirstOrDefault(u => u.Login.Equals(userName)
+
+            var hashedPassword = CalculateHash(clearTextPassword, userName);
+
+
+            var userData = db.Users.FirstOrDefault(u => u.Login.Equals(userName)
                                                      &&
-                                                     u.HashedPassword.Equals(CalculateHash(clearTextPassword, userName)));
+                                                     u.HashedPassword == hashedPassword);
             if (userData == null)
                 throw new UnauthorizedAccessException("Access denied. Please provide some valid credentials.");
 

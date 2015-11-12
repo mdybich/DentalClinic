@@ -1,9 +1,10 @@
+using System.Collections.Generic;
+using DentalClinic.Data.Models;
+
 namespace DentalClinic.Data.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DentalClinic.Data.DentalClinicContext>
     {
@@ -14,18 +15,133 @@ namespace DentalClinic.Data.Migrations
 
         protected override void Seed(DentalClinic.Data.DentalClinicContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            SeedRoles(context);
+            SeedLeaveTypes(context);
+            SeedVacationTypes(context);
+            SeedUsers(context);
+        }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        private void SeedRoles(DentalClinicContext context)
+        {
+            var rolesArray = new Role[]
+            {
+                new Role()
+                {
+                    Id = 1,
+                    Name = "Administrator"
+                },
+                new Role()
+                {
+                    Id = 2,
+                    Name = "Pracownik",
+                },
+                new Role()
+                {
+                    Id = 3,
+                    Name = "Rejestratorka"
+                },
+                new Role()
+                {
+                    Id = 4,
+                    Name = "Kierownik"
+                }
+            };
+            context.Set<Role>().AddOrUpdate(rolesArray);
+            context.SaveChanges();
+        }
+
+        private void SeedLeaveTypes(DentalClinicContext context)
+        {
+            var leaveTypesArray = new LeaveType[]
+            {
+                new LeaveType()
+                {
+                    Id = 1,
+                    Name = "Chorobowe"
+                },
+                new LeaveType()
+                {
+                    Id = 2,
+                    Name = "Opieka nad dzieckiem"
+                }
+            };
+            context.Set<LeaveType>().AddOrUpdate(leaveTypesArray);
+            context.SaveChanges();
+        }
+
+        private void SeedVacationTypes(DentalClinicContext context)
+        {
+            var vacationTypesArray = new VacationType[]
+            {
+                new VacationType()
+                {
+                    Id = 1,
+                    Name = "Wypoczynkowy"
+                },
+                new VacationType()
+                {
+                    Id = 2,
+                    Name = "Okolicznoœciowy"
+                },
+                new VacationType()
+                {
+                    Id = 3,
+                    Name = "Na ¿¹danie"
+                },
+                new VacationType()
+                {
+                    Id = 4,
+                    Name = "Bezp³atny"
+                },
+                new VacationType()
+                {
+                    Id = 5,
+                    Name = "Macierzyñski"
+                },
+                new VacationType()
+                {
+                    Id = 6,
+                    Name = "Ojcowski"
+                },
+                new VacationType()
+                {
+                    Id = 7,
+                    Name = "Wychowawczy"
+                }
+            };
+
+            context.Set<VacationType>().AddOrUpdate(vacationTypesArray);
+            context.SaveChanges();
+        }
+
+        private void SeedUsers(DentalClinicContext context)
+        {
+            var usersArray = new User[]
+            {
+                new User()
+                {
+                    Id = 1,
+                    Login = "mdybich",
+                    FirstName = "Micha³",
+                    LastName = "Dybich",
+                    IsActive = true,
+                    HashedPassword = @"/rFkWu74lVGMPMCGO6Lt+wuZ2zdW2qACxQimd55Wc2c=",
+                    RoleId = 1,
+                },
+                new User()
+                {
+                    Id = 2,
+                    Login = "mgrzybek",
+                    FirstName = "Marcin",
+                    LastName = "Grzybek",
+                    IsActive = true,
+                    HashedPassword = "qGdUzgNz7lITjrVF3bqVPTb2sX+Vl7hUNAIMv0wbM5M=",
+                    RoleId = 3
+                }
+            };
+
+            context.Set<User>().AddOrUpdate(usersArray);
+            context.SaveChanges();
         }
     }
 }

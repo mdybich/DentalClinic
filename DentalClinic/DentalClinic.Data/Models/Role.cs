@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime;
 
 namespace DentalClinic.Data.Models
 {

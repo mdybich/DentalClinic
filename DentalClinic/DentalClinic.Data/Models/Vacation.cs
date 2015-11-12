@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DentalClinic.Data.Models
 {
@@ -12,7 +8,7 @@ namespace DentalClinic.Data.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Comment { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool? IsApproved { get; set; }
 
         public int VacationTypeId { get; set; }
         public virtual VacationType Type { get; set; }

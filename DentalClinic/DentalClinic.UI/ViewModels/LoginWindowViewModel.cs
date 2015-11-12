@@ -1,10 +1,5 @@
 ﻿using DentalClinic.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using DentalClinic.Services.Services;
 using DentalClinic.UI.Authorization;
@@ -14,7 +9,7 @@ using DentalClinic.UI.Views;
 
 namespace DentalClinic.UI.ViewModels
 {
-    public class LoginWindowViewModel : INotifyPropertyChanged
+    public class LoginWindowViewModel : BaseViewModel
     {
 
         private readonly IAuthenticationService _authenticationService;
@@ -57,7 +52,6 @@ namespace DentalClinic.UI.ViewModels
         public ICommand LogoutCommand { get; set; }
 
         #endregion
-
         private void LoginExecute()
         {
             try
@@ -69,8 +63,19 @@ namespace DentalClinic.UI.ViewModels
 
                 //Authenticate the user
                 customPrincipal.Identity = new CustomIdentity(user.Login, user.FirstName, user.LastName, user.Role);
-                var test = new AdministratorWindow();
-                test.Show();
+
+                //display correct window
+                switch (user.Role.Id)
+                {
+                    case 1:
+                        ShowWindow<AdministratorWindow>();
+                        break;
+                    case 3:
+                        ShowWindow<RegistrantWindow>();
+                        break;
+                    default:
+                        throw new ArgumentException("Incorrect Role");
+                }
             }
             catch (UnauthorizedAccessException)
             {
@@ -81,16 +86,5 @@ namespace DentalClinic.UI.ViewModels
         {
             this.LoginCommand = new CommandHelper(LoginExecute);
         }
-
-        #region INotifyPropertyChanged Members
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }

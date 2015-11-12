@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using DentalClinic.Data.Models;
 
 namespace DentalClinic.Data
@@ -12,7 +7,7 @@ namespace DentalClinic.Data
     {
         public DentalClinicContext() : base ("DentalClinicContext")
         {
-            
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
         public DbSet<User> Users { get; set; }

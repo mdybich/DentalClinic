@@ -58,7 +58,11 @@
     <Compile Include="Authorization\CustomIdentity.cs" />
     <Compile Include="Authorization\CustomPrincipal.cs" />
     <Compile Include="CommandHelper.cs" />
+    <Compile Include="ViewModels\AdministratorWindowViewModel.cs" />
+    <Compile Include="ViewModels\LoggedBaseViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\RegistrantWindowViewModel.cs" />
     <Compile Include="Views\AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
@@ -69,11 +73,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\RegistrantWindow.xaml.cs">
+      <DependentUpon>RegistrantWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrantWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

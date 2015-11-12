@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalClinic.UI.Views"
+        xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         mc:Ignorable="d"
         Title="AdministratorWindow" Height="300" Width="300">
+    <Window.DataContext>
+        <viewModels:AdministratorWindowViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="{Binding DisplayName}" Grid.ColumnSpan="2" Margin="0,0,73.2,21.6" Grid.RowSpan="2" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Hasło:" Grid.ColumnSpan="2" Margin="0,0.4,73.2,3.6" />
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Text="{Binding DisplayName}" />
     </Grid>
 </Window>

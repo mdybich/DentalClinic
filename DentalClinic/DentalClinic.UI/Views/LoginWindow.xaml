@@ -26,6 +26,6 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Hasło:" Grid.ColumnSpan="2" Margin="0,0.4,73.2,3.6" />
         <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Text="{Binding UserLogin}" />
         <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Text="{Binding UserPassword}" />
-        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Content="Zaloguj" Margin="10" Command="{Binding LoginCommand}"></Button>
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Content="Zaloguj" Margin="10" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=LoginWindow}"></Button>
     </Grid>
 </Window>
