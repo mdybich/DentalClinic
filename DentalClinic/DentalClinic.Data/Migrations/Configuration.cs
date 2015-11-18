@@ -19,6 +19,7 @@ namespace DentalClinic.Data.Migrations
             SeedLeaveTypes(context);
             SeedVacationTypes(context);
             SeedUsers(context);
+            SeedLeaves(context);
         }
 
         private void SeedRoles(DentalClinicContext context)
@@ -141,6 +142,39 @@ namespace DentalClinic.Data.Migrations
             };
 
             context.Set<User>().AddOrUpdate(usersArray);
+            context.SaveChanges();
+        }
+
+        private void SeedLeaves(DentalClinicContext context)
+        {
+            var leavesArray = new Leave[]
+            {
+                new Leave()
+                {
+                    Id = 1,
+                    StartDate = new DateTime(2015, 1, 12),
+                    EndDate = new DateTime(2015, 2, 4),
+                    Comment = "Zwolnienie lekarskie z powodu chorego krêgos³upa",
+                    IsApproved = false,
+                    LeaveTypeId = 1,
+                    UserId = 2,
+                    SubstituteUserId = 1,
+                },
+                                new Leave()
+                {
+                    Id = 1,
+                    StartDate = new DateTime(2015, 4, 5),
+                    EndDate = new DateTime(2015, 5, 12),
+                    Comment = "Zachorowa³a mi córeczka",
+                    IsApproved = false,
+                    LeaveTypeId = 2,
+                    UserId = 1,
+                    SubstituteUserId = 2,
+                }
+
+            };
+
+            context.Set<Leave>().AddOrUpdate(leavesArray);
             context.SaveChanges();
         }
     }

@@ -52,12 +52,28 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Header="Urlopy">
-                <DataGrid>
-                    
+            <TabItem Header="Zwolnienia">
+                <DataGrid ItemsSource="{Binding Leaves}" Margin="2" 
+                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
+                          GridLinesVisibility="None" IsReadOnly="True"
+                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Pracownik" Binding="{Binding UserFullName}" />
+                        <DataGridTextColumn Header="Rodzaj" Binding="{Binding LeaveTypeName}" />
+                        <DataGridTextColumn Header="Data rozpoczęcia" Binding="{Binding StartDate}" />
+                        <DataGridTextColumn Header="Data zakończenia" Binding="{Binding EndDate}" />
+                        <DataGridTextColumn Header="Zastępca" Binding="{Binding SubstituteUserFullName}" />
+                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="83">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="Zwolnienia">
+            <TabItem Header="Urlopy">
                 <DataGrid>
 
                 </DataGrid>
