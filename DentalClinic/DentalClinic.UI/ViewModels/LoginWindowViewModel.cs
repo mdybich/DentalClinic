@@ -70,6 +70,9 @@ namespace DentalClinic.UI.ViewModels
                     case 1:
                         ShowWindow<AdministratorWindow>();
                         break;
+                    case 2:
+                        ShowWindow<WorkerWindow>();
+                        break;
                     case 3:
                         ShowWindow<RegistrantWindow>();
                         break;

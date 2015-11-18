@@ -76,6 +76,9 @@
     <Compile Include="Views\RegistrantWindow.xaml.cs">
       <DependentUpon>RegistrantWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WorkerWindow.xaml.cs">
+      <DependentUpon>WorkerWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrantWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +129,7 @@
     <ProjectReference Include="..\DentalClinic.Data\DentalClinic.Data.csproj">
       <Project>{09c51b47-5f01-4c41-b53a-02d687c8d7f3}</Project>
       <Name>DentalClinic.Data</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\DentalClinic.Services\DentalClinic.Services.csproj">
       <Project>{fed2c01f-846f-40db-aa13-5470e3f63cb8}</Project>
