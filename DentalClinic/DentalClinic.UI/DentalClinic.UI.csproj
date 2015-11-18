@@ -63,6 +63,7 @@
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\RegistrantWindowViewModel.cs" />
+    <Compile Include="ViewModels\WorkerWindowViewModel.cs" />
     <Compile Include="Views\AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
