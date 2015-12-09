@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DentalClinic.Data.Models;
 
 namespace DentalClinic.Data.Migrations

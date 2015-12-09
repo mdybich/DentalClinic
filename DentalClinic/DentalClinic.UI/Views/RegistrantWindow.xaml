@@ -79,7 +79,7 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
-        <Button Grid.Column="4" Grid.Row="1" Content="Dodaj nowy urlop" Margin="5 60 5 50"/>
-        <Button Grid.Column="4" Grid.Row="2" Content="Dodaj nowy wakacje" Margin="5 0 5 110"/>
+        <Button Grid.Column="4" Grid.Row="1" Content="Dodaj nowe zwolnienie" Command="{Binding OpenAddLeaveWindowCommand}" Margin="5 60 5 50"/>
+        <Button Grid.Column="4" Grid.Row="2" Content="Dodaj nowy urlop" Margin="5 0 5 110"/>
     </Grid>
 </Window>

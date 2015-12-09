@@ -1,0 +1,45 @@
+﻿<Window x:Class="DentalClinic.UI.Views.AddLeaveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalClinic.UI.Views"
+        xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
+        x:Name="AddLeaveWindowName"
+        mc:Ignorable="d"
+        Title="Dodaj nowe zwolnienie" Height="450" Width="300">
+    <Window.DataContext>
+        <viewModels:AddLeaveWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Pracownik:" Margin="15"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Users}"
+                  DisplayMemberPath="FullName" SelectedValuePath="Id"
+                  SelectedValue="{Binding SelectedUserId}"  Margin="15"></ComboBox>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Rodzaj zwolnienia:" Margin="15"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding LeavesTypes}" 
+                  DisplayMemberPath="Name" SelectedValuePath="Id"
+                  SelectedValue="{Binding SelectedLeaveTypeId}" Margin="15"></ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Data rozpoczęcia:" Margin="15"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="15" SelectedDate="{Binding StartDate}"></DatePicker>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Data zakończenia:" Margin="15"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="15" SelectedDate="{Binding EndDate}"></DatePicker>
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Komentarz: " Margin="15"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Comment}" Margin="15,0,15,0"/>
+        <Button Grid.Row="6" Grid.Column="0" Content="Anuluj" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddLeaveWindowName}" Margin="15"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="Zapisz" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddLeaveWindowName}" Margin="15"/>
+    </Grid>
+</Window>

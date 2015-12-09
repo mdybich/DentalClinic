@@ -1,14 +1,14 @@
-﻿using DentalClinic.UI.Interfaces;
-using System.Windows;
+﻿using System.Windows;
+using DentalClinic.UI.Interfaces;
 
 namespace DentalClinic.UI.Views
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for AddLeaveWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window, IClosable
+    public partial class AddLeaveWindow : Window, IClosable
     {
-        public LoginWindow()
+        public AddLeaveWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();

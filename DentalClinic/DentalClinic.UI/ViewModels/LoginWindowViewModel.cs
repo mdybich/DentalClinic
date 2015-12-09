@@ -1,11 +1,12 @@
 ﻿using DentalClinic.Services.Interfaces;
 using System;
-using System.Windows.Input;
 using DentalClinic.Services.Services;
 using DentalClinic.UI.Authorization;
 using System.Threading;
 using System.Windows;
 using DentalClinic.UI.Views;
+using GalaSoft.MvvmLight.CommandWpf;
+using DentalClinic.UI.Interfaces;
 
 namespace DentalClinic.UI.ViewModels
 {
@@ -13,8 +14,9 @@ namespace DentalClinic.UI.ViewModels
     {
 
         private readonly IAuthenticationService _authenticationService;
-        private string userLogin;
-        private string userPassword;
+
+        private string _userLogin;
+        private string _userPassword;
 
         public LoginWindowViewModel() : this(new AuthenticationService())
         {
@@ -28,36 +30,28 @@ namespace DentalClinic.UI.ViewModels
 
         public string UserLogin
         {
-            get { return this.userLogin; }
-            set
-            {
-                this.userLogin = value;
-                this.OnPropertyChanged("User Login");
-            }
+            get { return this._userLogin; }
+            set { Set(() => UserLogin, ref this._userLogin, value); }
         }
 
         public string UserPassword
         {
-            get { return this.userPassword; }
-            set
-            {
-                this.userPassword = value;
-                this.OnPropertyChanged("User Password");
-            }
+            get { return this._userPassword; }
+            set { Set(() => UserPassword, ref this._userPassword, value); }
         }
 
         #region Commands
 
-        public ICommand LoginCommand { get; set; }
-        public ICommand LogoutCommand { get; set; }
+        public RelayCommand<IClosable> LoginCommand { get; set; }
+        public RelayCommand LogoutCommand { get; set; }
 
         #endregion
-        private void LoginExecute()
+        private void LoginExecute(IClosable loginWindow)
         {
             try
             {
                 var user = _authenticationService.AuthenticateUser(UserLogin, UserPassword);
-                CustomPrincipal customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
+                var customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
                 if (customPrincipal == null)
                     throw new ArgumentException("The application's default thread principal must be set to a CustomPrincipal object on startup.");
 
@@ -76,15 +70,23 @@ namespace DentalClinic.UI.ViewModels
                     default:
                         throw new ArgumentException("Incorrect Role");
                 }
+
+                //close login window
+
+                if (loginWindow != null)
+                {
+                    loginWindow.Close();
+                }
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("ZLY LOGIN ALBO HASLO");
+                MessageBox.Show("Niepoprawny login bądź hasło");
             }
         }
+
         private void ButtonAssignment()
         {
-            this.LoginCommand = new CommandHelper(LoginExecute);
+            this.LoginCommand = new RelayCommand<IClosable>(LoginExecute);
         }
     }
 }

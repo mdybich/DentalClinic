@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
 using DentalClinic.Data.Models;
