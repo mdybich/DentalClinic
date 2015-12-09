@@ -130,6 +130,16 @@ namespace DentalClinic.Data.Migrations
                 },
                 new User()
                 {
+                    Id = 3,
+                    Login = "pracownik",
+                    FirstName = "Krzysztof",
+                    LastName = "B³a¿e³ek",
+                    IsActive = true,
+                    HashedPassword = @"iKyFWCuj1uIlSQzRHNRK9TPdiatvm8yA2zTI0nBXYAk=",
+                    RoleId = 2,
+                },
+                new User()
+                {
                     Id = 2,
                     Login = "mgrzybek",
                     FirstName = "Marcin",
