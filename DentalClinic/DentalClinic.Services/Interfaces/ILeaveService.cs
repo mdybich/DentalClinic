@@ -6,6 +6,7 @@ namespace DentalClinic.Services.Interfaces
     public interface ILeaveService
     {
         IEnumerable<LeaveToDisplay> GetAllLeaves();
+        IEnumerable<LeaveToDisplay> GetLeavesByLogin(string login);
         IEnumerable<LeaveTypeToDisplay> GetAllLeavesTypes();
         LeaveToDisplay AddLeave(LeaveToAdd leave);
     }

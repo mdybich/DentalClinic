@@ -63,6 +63,7 @@
                         <DataGridTextColumn Header="Data rozpoczęcia" Binding="{Binding StartDate}" />
                         <DataGridTextColumn Header="Data zakończenia" Binding="{Binding EndDate}" />
                         <DataGridTextColumn Header="Zastępca" Binding="{Binding SubstituteUserFullName}" />
+                        <DataGridTextColumn Header="Zatwierdzono" Binding="{Binding IsApproved}" />
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="83">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
@@ -74,12 +75,29 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Urlopy">
-                <DataGrid>
-
+                <DataGrid ItemsSource="{Binding Vacations}" Margin="2" 
+                          AutoGenerateColumns="False" AlternatingRowBackground="Plum" 
+                          GridLinesVisibility="None" IsReadOnly="True"
+                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Pracownik" Binding="{Binding UserFullName}" />
+                        <DataGridTextColumn Header="Rodzaj" Binding="{Binding VacationTypeName}" />
+                        <DataGridTextColumn Header="Data rozpoczęcia" Binding="{Binding StartDate}" />
+                        <DataGridTextColumn Header="Data zakończenia" Binding="{Binding EndDate}" />
+                        <DataGridTextColumn Header="Zastępca" Binding="{Binding SubstituteUserFullName}" />
+                        <DataGridTextColumn Header="Zatwierdzono" Binding="{Binding IsApproved}" />
+                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="83">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
         </TabControl>
         <Button Grid.Column="4" Grid.Row="1" Content="Dodaj nowe zwolnienie" Command="{Binding OpenAddLeaveWindowCommand}" Margin="5 60 5 50"/>
-        <Button Grid.Column="4" Grid.Row="2" Content="Dodaj nowy urlop" Margin="5 0 5 110"/>
+        <Button Grid.Column="4" Grid.Row="2" Content="Dodaj nowy urlop" Command="{Binding OpenAddVacationWindowCommand}" Margin="5 0 5 110"/>
     </Grid>
 </Window>

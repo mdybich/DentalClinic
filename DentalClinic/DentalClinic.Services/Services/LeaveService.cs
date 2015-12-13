@@ -1,4 +1,5 @@
-﻿using DentalClinic.Data;
+﻿using System;
+using DentalClinic.Data;
 using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
 using System.Collections.Generic;
@@ -20,7 +21,24 @@ namespace DentalClinic.Services.Services
                 EndDate = l.EndDate.ToString("dd.MM.yyyy"),
                 Comment = l.Comment,
                 LeaveTypeName = l.Type.Name,
-                SubstituteUserFullName = l.SubstituteUser.FirstName + " " + l.SubstituteUser.LastName
+                SubstituteUserFullName = l.SubstituteUser.FirstName + " " + l.SubstituteUser.LastName,
+                IsApproved = l.IsApproved != null ? (l.IsApproved == true ? "Tak" : "Nie") : string.Empty
+            });
+
+            return leaves;
+        }
+
+        public IEnumerable<LeaveToDisplay> GetLeavesByLogin(string login)
+        {
+            var leaves = db.Leaves.Where(l => l.User.Login == login).ToList().Select(l => new LeaveToDisplay
+            {
+                UserFullName = l.User.FirstName + " " + l.User.LastName,
+                StartDate = l.StartDate.ToString("dd.MM.yyyy"),
+                EndDate = l.EndDate.ToString("dd.MM.yyyy"),
+                Comment = l.Comment,
+                LeaveTypeName = l.Type.Name,
+                SubstituteUserFullName = l.SubstituteUser.FirstName + " " + l.SubstituteUser.LastName,
+                IsApproved = l.IsApproved != null ? (l.IsApproved == true ? "Tak" : "Nie") : string.Empty
             });
 
             return leaves;
@@ -62,10 +80,11 @@ namespace DentalClinic.Services.Services
                     EndDate = l.EndDate.ToString("dd.MM.yyyy"),
                     Comment = l.Comment,
                     LeaveTypeName = l.Type.Name,
-                    SubstituteUserFullName = $"{l.SubstituteUser.FirstName} {l.SubstituteUser.LastName}"
+                    SubstituteUserFullName = $"{l.SubstituteUser.FirstName} {l.SubstituteUser.LastName}",
+                    IsApproved = l.IsApproved != null ? (l.IsApproved == true ? "Tak" : "Nie") : string.Empty
                 }).FirstOrDefault();
 
             return newLeave;
-        } 
+        }
     }
 }

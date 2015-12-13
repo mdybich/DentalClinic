@@ -18,7 +18,6 @@ namespace DentalClinic.Data.Migrations
             SeedLeaveTypes(context);
             SeedVacationTypes(context);
             SeedUsers(context);
-            SeedLeaves(context);
         }
 
         private void SeedRoles(DentalClinicContext context)
@@ -76,37 +75,37 @@ namespace DentalClinic.Data.Migrations
                 new VacationType()
                 {
                     Id = 1,
-                    Name = "Wypoczynkowy"
+                    Name = @"Wypoczynkowy"
                 },
                 new VacationType()
                 {
                     Id = 2,
-                    Name = "Okolicznoœciowy"
+                    Name = @"Okolicznoœciowy"
                 },
                 new VacationType()
                 {
                     Id = 3,
-                    Name = "Na ¿¹danie"
+                    Name = @"Na ¿¹danie"
                 },
                 new VacationType()
                 {
                     Id = 4,
-                    Name = "Bezp³atny"
+                    Name = @"Bezp³atny"
                 },
                 new VacationType()
                 {
                     Id = 5,
-                    Name = "Macierzyñski"
+                    Name = @"Macierzyñski"
                 },
                 new VacationType()
                 {
                     Id = 6,
-                    Name = "Ojcowski"
+                    Name = @"Ojcowski"
                 },
                 new VacationType()
                 {
                     Id = 7,
-                    Name = "Wychowawczy"
+                    Name = @"Wychowawczy"
                 }
             };
 
@@ -131,11 +130,11 @@ namespace DentalClinic.Data.Migrations
                 new User()
                 {
                     Id = 3,
-                    Login = "pracownik",
+                    Login = "kblazelek",
                     FirstName = "Krzysztof",
-                    LastName = "B³a¿e³ek",
+                    LastName = "Blazelek",
                     IsActive = true,
-                    HashedPassword = @"iKyFWCuj1uIlSQzRHNRK9TPdiatvm8yA2zTI0nBXYAk=",
+                    HashedPassword = @"OVOOHIGx2xyoNjoXUddBrMesR68G2rDuE+9O2NtQTG0=",
                     RoleId = 2,
                 },
                 new User()
@@ -154,37 +153,5 @@ namespace DentalClinic.Data.Migrations
             context.SaveChanges();
         }
 
-        private void SeedLeaves(DentalClinicContext context)
-        {
-            var leavesArray = new Leave[]
-            {
-                new Leave()
-                {
-                    Id = 1,
-                    StartDate = new DateTime(2015, 1, 12),
-                    EndDate = new DateTime(2015, 2, 4),
-                    Comment = "Zwolnienie lekarskie z powodu chorego krêgos³upa",
-                    IsApproved = false,
-                    LeaveTypeId = 1,
-                    UserId = 2,
-                    SubstituteUserId = 1,
-                },
-                                new Leave()
-                {
-                    Id = 1,
-                    StartDate = new DateTime(2015, 4, 5),
-                    EndDate = new DateTime(2015, 5, 12),
-                    Comment = "Zachorowa³a mi córeczka",
-                    IsApproved = false,
-                    LeaveTypeId = 2,
-                    UserId = 1,
-                    SubstituteUserId = 2,
-                }
-
-            };
-
-            context.Set<Leave>().AddOrUpdate(leavesArray);
-            context.SaveChanges();
-        }
     }
 }

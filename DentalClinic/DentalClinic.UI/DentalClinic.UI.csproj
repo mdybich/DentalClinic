@@ -79,18 +79,21 @@
     <Compile Include="Authorization\CustomPrincipal.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="ViewModels\AddLeaveWindowViewModel.cs" />
+    <Compile Include="ViewModels\AddVacationWindowViewModel.cs" />
     <Compile Include="ViewModels\AdministratorWindowViewModel.cs" />
     <Compile Include="ViewModels\LoggedBaseViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\RegistrantWindowViewModel.cs" />
-	<Compile Include="ViewModels\WorkerWindowViewModel.cs" />
+    <Compile Include="ViewModels\WorkerWindowViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\AddLeaveWindow.xaml.cs">
       <DependentUpon>AddLeaveWindow.xaml</DependentUpon>
     </Compile>
-    
+    <Compile Include="Views\AddVacationWindow.xaml.cs">
+      <DependentUpon>AddVacationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
@@ -104,13 +107,17 @@
     <Compile Include="Views\RegistrantWindow.xaml.cs">
       <DependentUpon>RegistrantWindow.xaml</DependentUpon>
     </Compile>
-	<Compile Include="Views\WorkerWindow.xaml.cs">
+    <Compile Include="Views\WorkerWindow.xaml.cs">
       <DependentUpon>WorkerWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddLeaveWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-	  </Page>
+    </Page>
+    <Page Include="Views\AddVacationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

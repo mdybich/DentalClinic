@@ -1,35 +1,35 @@
 ﻿using System;
-using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
+using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
 using DentalClinic.Services.Services;
-using DentalClinic.Services.Helpers;
 using DentalClinic.UI.Interfaces;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace DentalClinic.UI.ViewModels
 {
-    public class AddLeaveWindowViewModel : ViewModelBase
+    public class AddVacationWindowViewModel: ViewModelBase
     {
         #region Services Reference
-        private readonly ILeaveService _leaveService;
+        private readonly IVacationService _vacationService;
         private readonly IUserService _userService;
         #endregion
 
         #region Properties For Binding
-        private ObservableCollection<LeaveTypeToDisplay> _leavesTypes;
+        private ObservableCollection<VacationTypeToDisplay> _vacationsTypes;
         private ObservableCollection<BasicUserToDisplay> _users;
         private int? _selectedUserId;
-        private int? _selectedLeaveTypeId;
+        private int? _selectedVacationTypeId;
         private DateTime? _startDate;
         private DateTime? _endDate;
         private string _comment;
 
-        public ObservableCollection<LeaveTypeToDisplay> LeavesTypes
+        public ObservableCollection<VacationTypeToDisplay> VacationTypes
         {
-            get { return this._leavesTypes; }
-            set { Set(() => LeavesTypes, ref this._leavesTypes, value); }
+            get { return this._vacationsTypes; }
+            set { Set(() => VacationTypes, ref this._vacationsTypes, value); }
         }
 
         public ObservableCollection<BasicUserToDisplay> Users
@@ -44,10 +44,10 @@ namespace DentalClinic.UI.ViewModels
             set { Set(() => SelectedUserId, ref this._selectedUserId, value); }
         }
 
-        public int? SelectedLeaveTypeId
+        public int? SelectedVacationTypeId
         {
-            get { return this._selectedLeaveTypeId; }
-            set { Set(() => SelectedLeaveTypeId, ref this._selectedLeaveTypeId, value); }
+            get { return this._selectedVacationTypeId; }
+            set { Set(() => SelectedVacationTypeId, ref this._selectedVacationTypeId, value); }
         }
 
         public DateTime? StartDate
@@ -75,18 +75,18 @@ namespace DentalClinic.UI.ViewModels
         #endregion
 
         #region Constructors
-        public AddLeaveWindowViewModel() : this (new LeaveService(), new UserService())
+        public AddVacationWindowViewModel() : this (new VacationService(), new UserService())
         {
-            _leavesTypes = new ObservableCollection<LeaveTypeToDisplay>();
+            _vacationsTypes = new ObservableCollection<VacationTypeToDisplay>();
             _users = new ObservableCollection<BasicUserToDisplay>();
 
             RetrieveData();
             ButtonAssignment();
         }
 
-        public AddLeaveWindowViewModel(ILeaveService leaveService, IUserService userService)
+        public AddVacationWindowViewModel(IVacationService vacationService, IUserService userService)
         {
-            _leaveService = leaveService;
+            _vacationService = vacationService;
             _userService = userService;
         }
 
@@ -103,18 +103,18 @@ namespace DentalClinic.UI.ViewModels
 
         private void SaveExecute(IClosable window)
         {
-            var leaveToAdd = new LeaveToAdd
+            var vacationToAdd = new VacationToAdd
             {
-                UserId = (int) SelectedUserId,
-                LeaveTypeId = (int) SelectedLeaveTypeId,
-                StartDate = (DateTime) StartDate,
-                EndDate = (DateTime) EndDate,
+                UserId = (int)SelectedUserId,
+                VacationTypeId = (int)SelectedVacationTypeId,
+                StartDate = (DateTime)StartDate,
+                EndDate = (DateTime)EndDate,
                 Comment = Comment
             };
 
-            var newLeaveFromDb = _leaveService.AddLeave(leaveToAdd);
+            var newVacationFromDb = _vacationService.AddVacation(vacationToAdd);
 
-            Messenger.Default.Send<LeaveToDisplay>(newLeaveFromDb);
+            Messenger.Default.Send<VacationToDisplay>(newVacationFromDb);
 
             if (window != null)
             {
@@ -126,10 +126,10 @@ namespace DentalClinic.UI.ViewModels
         #region Private Methods
         private void RetrieveData()
         {
-            var leavesTypes = _leaveService.GetAllLeavesTypes();
-            foreach (var leaveType in leavesTypes)
+            var vacationsTypes = _vacationService.GetAllVacationsTypes();
+            foreach (var vacationsType in vacationsTypes)
             {
-                LeavesTypes.Add(leaveType);
+                VacationTypes.Add(vacationsType);
             }
 
             var users = _userService.GetBasicUsers();
@@ -148,12 +148,11 @@ namespace DentalClinic.UI.ViewModels
         private bool IsModelValid(IClosable arg)
         {
             return SelectedUserId != null
-                && SelectedLeaveTypeId != null
+                && SelectedVacationTypeId != null
                 && StartDate != null
                 && EndDate != null;
         }
 
         #endregion
-
     }
 }
