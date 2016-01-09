@@ -13,10 +13,10 @@ namespace DentalClinic.Data.Migrations
 
         protected override void Seed(DentalClinic.Data.DentalClinicContext context)
         {
-            SeedRoles(context);
-            SeedLeaveTypes(context);
-            SeedVacationTypes(context);
-            SeedUsers(context);
+            //SeedRoles(context);
+            //SeedLeaveTypes(context);
+            //SeedVacationTypes(context);
+            //SeedUsers(context);
         }
 
         private void SeedRoles(DentalClinicContext context)

@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201601061813484_AddedIsActiveFieldToDictionaries.Designer.cs">
       <DependentUpon>201601061813484_AddedIsActiveFieldToDictionaries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601091814038_InitalizeData.cs" />
+    <Compile Include="Migrations\201601091814038_InitalizeData.Designer.cs">
+      <DependentUpon>201601091814038_InitalizeData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Leave.cs" />
     <Compile Include="Models\LeaveType.cs" />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601061813484_AddedIsActiveFieldToDictionaries.resx">
       <DependentUpon>201601061813484_AddedIsActiveFieldToDictionaries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601091814038_InitalizeData.resx">
+      <DependentUpon>201601091814038_InitalizeData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
