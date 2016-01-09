@@ -79,6 +79,7 @@
     <Compile Include="Authorization\CustomPrincipal.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="ViewModels\AddLeaveWindowViewModel.cs" />
+    <Compile Include="ViewModels\AddUserWindowViewModel.cs" />
     <Compile Include="ViewModels\AddVacationWindowViewModel.cs" />
     <Compile Include="ViewModels\AdministratorWindowViewModel.cs" />
     <Compile Include="ViewModels\LoggedBaseViewModel.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\AddLeaveWindow.xaml.cs">
       <DependentUpon>AddLeaveWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddVacationWindow.xaml.cs">
       <DependentUpon>AddVacationWindow.xaml</DependentUpon>
@@ -111,6 +115,10 @@
       <DependentUpon>WorkerWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddLeaveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

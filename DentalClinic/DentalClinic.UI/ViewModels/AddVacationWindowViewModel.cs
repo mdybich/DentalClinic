@@ -7,6 +7,8 @@ using DentalClinic.UI.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
+using DentalClinic.Services.Exceptions;
+using System.Windows;
 
 namespace DentalClinic.UI.ViewModels
 {
@@ -111,14 +113,21 @@ namespace DentalClinic.UI.ViewModels
                 EndDate = (DateTime)EndDate,
                 Comment = Comment
             };
-
-            var newVacationFromDb = _vacationService.AddVacation(vacationToAdd);
-
-            Messenger.Default.Send<VacationToDisplay>(newVacationFromDb);
-
-            if (window != null)
+            
+            try
             {
-                window.Close();
+                _vacationService.AddVacation(vacationToAdd);
+
+                Messenger.Default.Send<VacationToAdd>(vacationToAdd);
+
+                if (window != null)
+                {
+                    window.Close();
+                }
+            }
+            catch(VacationException exc)
+            {
+                MessageBox.Show(exc.Message, "Błąd");
             }
         }
         #endregion

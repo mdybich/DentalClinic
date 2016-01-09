@@ -1,5 +1,6 @@
 ﻿using DentalClinic.UI.Interfaces;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DentalClinic.UI.Views
 {
@@ -12,6 +13,12 @@ namespace DentalClinic.UI.Views
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
         }
     }
 }

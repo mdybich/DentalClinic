@@ -7,6 +7,8 @@ using DentalClinic.Services.Helpers;
 using DentalClinic.UI.Interfaces;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
+using DentalClinic.Services.Exceptions;
+using System.Windows;
 
 namespace DentalClinic.UI.ViewModels
 {
@@ -112,13 +114,20 @@ namespace DentalClinic.UI.ViewModels
                 Comment = Comment
             };
 
-            var newLeaveFromDb = _leaveService.AddLeave(leaveToAdd);
-
-            Messenger.Default.Send<LeaveToDisplay>(newLeaveFromDb);
-
-            if (window != null)
+            try
             {
-                window.Close();
+                _leaveService.AddLeave(leaveToAdd);
+
+                Messenger.Default.Send<LeaveToAdd>(leaveToAdd);
+
+                if (window != null)
+                {
+                    window.Close();
+                }
+            }
+            catch(LeaveException exc)
+            {
+                MessageBox.Show(exc.Message, "Błąd");
             }
         }
         #endregion

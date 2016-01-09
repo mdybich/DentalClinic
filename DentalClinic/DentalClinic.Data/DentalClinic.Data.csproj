@@ -66,6 +66,10 @@
     <Compile Include="Migrations\201511071404445_AddIsApprovedColumnToVacationAndLeave.Designer.cs">
       <DependentUpon>201511071404445_AddIsApprovedColumnToVacationAndLeave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601061813484_AddedIsActiveFieldToDictionaries.cs" />
+    <Compile Include="Migrations\201601061813484_AddedIsActiveFieldToDictionaries.Designer.cs">
+      <DependentUpon>201601061813484_AddedIsActiveFieldToDictionaries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Leave.cs" />
     <Compile Include="Models\LeaveType.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511071404445_AddIsApprovedColumnToVacationAndLeave.resx">
       <DependentUpon>201511071404445_AddIsApprovedColumnToVacationAndLeave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601061813484_AddedIsActiveFieldToDictionaries.resx">
+      <DependentUpon>201601061813484_AddedIsActiveFieldToDictionaries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

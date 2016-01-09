@@ -16,7 +16,6 @@ namespace DentalClinic.UI.ViewModels
         private readonly IAuthenticationService _authenticationService;
 
         private string _userLogin;
-        private string _userPassword;
 
         public LoginWindowViewModel() : this(new AuthenticationService())
         {
@@ -34,11 +33,7 @@ namespace DentalClinic.UI.ViewModels
             set { Set(() => UserLogin, ref this._userLogin, value); }
         }
 
-        public string UserPassword
-        {
-            get { return this._userPassword; }
-            set { Set(() => UserPassword, ref this._userPassword, value); }
-        }
+        public string Password { get; set; }
 
         #region Commands
 
@@ -50,7 +45,7 @@ namespace DentalClinic.UI.ViewModels
         {
             try
             {
-                var user = _authenticationService.AuthenticateUser(UserLogin, UserPassword);
+                var user = _authenticationService.AuthenticateUser(UserLogin, Password);
                 var customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
                 if (customPrincipal == null)
                     throw new ArgumentException("The application's default thread principal must be set to a CustomPrincipal object on startup.");

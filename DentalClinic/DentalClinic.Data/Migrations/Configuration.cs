@@ -2,7 +2,6 @@ using DentalClinic.Data.Models;
 
 namespace DentalClinic.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DentalClinic.Data.DentalClinicContext>
@@ -56,12 +55,15 @@ namespace DentalClinic.Data.Migrations
                 new LeaveType()
                 {
                     Id = 1,
-                    Name = "Chorobowe"
+                    Name = "Chorobowe",
+                    IsActive = true
+                    
                 },
                 new LeaveType()
                 {
                     Id = 2,
-                    Name = "Opieka nad dzieckiem"
+                    Name = "Opieka nad dzieckiem",
+                    IsActive = true
                 }
             };
             context.Set<LeaveType>().AddOrUpdate(leaveTypesArray);
@@ -75,37 +77,44 @@ namespace DentalClinic.Data.Migrations
                 new VacationType()
                 {
                     Id = 1,
-                    Name = @"Wypoczynkowy"
+                    Name = @"Wypoczynkowy",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 2,
-                    Name = @"Okolicznoœciowy"
+                    Name = @"Okolicznoœciowy",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 3,
-                    Name = @"Na ¿¹danie"
+                    Name = @"Na ¿¹danie",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 4,
-                    Name = @"Bezp³atny"
+                    Name = @"Bezp³atny",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 5,
-                    Name = @"Macierzyñski"
+                    Name = @"Macierzyñski",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 6,
-                    Name = @"Ojcowski"
+                    Name = @"Ojcowski",
+                    IsActive = true
                 },
                 new VacationType()
                 {
                     Id = 7,
-                    Name = @"Wychowawczy"
+                    Name = @"Wychowawczy",
+                    IsActive = true
                 }
             };
 
@@ -121,7 +130,7 @@ namespace DentalClinic.Data.Migrations
                 {
                     Id = 1,
                     Login = "mdybich",
-                    FirstName = "Micha³",
+                    FirstName = "Michal",
                     LastName = "Dybich",
                     IsActive = true,
                     HashedPassword = @"/rFkWu74lVGMPMCGO6Lt+wuZ2zdW2qACxQimd55Wc2c=",

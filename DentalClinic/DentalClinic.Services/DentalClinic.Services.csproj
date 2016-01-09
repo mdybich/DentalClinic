@@ -49,11 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\LeaveException.cs" />
+    <Compile Include="Exceptions\LeaveTypeException.cs" />
+    <Compile Include="Exceptions\UserException.cs" />
+    <Compile Include="Exceptions\VacationException.cs" />
+    <Compile Include="Exceptions\VacationTypeException.cs" />
     <Compile Include="Helpers\BasicUserToDisplay.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LeaveToAdd.cs" />
     <Compile Include="Helpers\LeaveToDisplay.cs" />
     <Compile Include="Helpers\LeaveTypeToDisplay.cs" />
+    <Compile Include="Helpers\RoleToDisplay.cs" />
     <Compile Include="Helpers\UserInfo.cs" />
+    <Compile Include="Helpers\UserToAdd.cs" />
+    <Compile Include="Helpers\UserToDisplay.cs" />
     <Compile Include="Helpers\VacationToAdd.cs" />
     <Compile Include="Helpers\VacationToDisplay.cs" />
     <Compile Include="Helpers\VacationTypeToDisplay.cs" />

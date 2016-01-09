@@ -41,8 +41,8 @@ namespace DentalClinic.UI.ViewModels
             Leaves = new ObservableCollection<LeaveToDisplay>();
             Vacations = new ObservableCollection<VacationToDisplay>();
             RetrieveData();
-            Messenger.Default.Register<LeaveToDisplay>(this, AddNewLeaveToGrid);
-            Messenger.Default.Register<VacationToDisplay>(this, AddNewVacationToGrid);
+            Messenger.Default.Register<LeaveToAdd>(this, RefreshLeavesGrid);
+            Messenger.Default.Register<VacationToAdd>(this, RefreshVacationsGrid);
         }
 
         public RegistrantWindowViewModel(ILeaveService leaveService, IVacationService vacationService)
@@ -53,11 +53,30 @@ namespace DentalClinic.UI.ViewModels
 
         private void RetrieveData()
         {
+            RetrieveLeaves();
+            RetrieveVacations();
+        }
+
+        private void RetrieveLeaves()
+        {
+            if (Leaves.Count != 0)
+            {
+                Leaves.Clear();
+            }
+
             var leavesData = _leaveService.GetAllLeaves();
 
             foreach (var leave in leavesData)
             {
                 Leaves.Add(leave);
+            }
+        }
+
+        public void RetrieveVacations()
+        {
+            if (Vacations.Count != 0)
+            {
+                Vacations.Clear();
             }
 
             var vacationsData = _vacationService.GetAllVacations();
@@ -84,14 +103,14 @@ namespace DentalClinic.UI.ViewModels
             ShowWindow<AddVacationWindow>();
         }
 
-        private void AddNewLeaveToGrid(LeaveToDisplay newLeave)
+        private void RefreshLeavesGrid(LeaveToAdd newLeave)
         {
-            Leaves.Add(newLeave);
+            RetrieveLeaves();
         }
 
-        private void AddNewVacationToGrid(VacationToDisplay newVacation)
+        private void RefreshVacationsGrid(VacationToAdd newVacation)
         {
-            Vacations.Add(newVacation);
+            RetrieveVacations();
         }
     }
 }

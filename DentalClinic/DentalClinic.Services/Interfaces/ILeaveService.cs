@@ -8,6 +8,8 @@ namespace DentalClinic.Services.Interfaces
         IEnumerable<LeaveToDisplay> GetAllLeaves();
         IEnumerable<LeaveToDisplay> GetLeavesByLogin(string login);
         IEnumerable<LeaveTypeToDisplay> GetAllLeavesTypes();
-        LeaveToDisplay AddLeave(LeaveToAdd leave);
+        void AddLeave(LeaveToAdd leave);
+        void DeleteLeaveType(int id);
+        void AddLeaveType(string leaveTypeName);
     }
 }

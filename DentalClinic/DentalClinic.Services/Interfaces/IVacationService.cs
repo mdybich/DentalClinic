@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DentalClinic.Services.Helpers;
 
 namespace DentalClinic.Services.Interfaces
@@ -12,6 +8,8 @@ namespace DentalClinic.Services.Interfaces
         IEnumerable<VacationToDisplay> GetAllVacations();
         IEnumerable<VacationToDisplay> GetVacationsByLogin(string login);
         IEnumerable<VacationTypeToDisplay> GetAllVacationsTypes();
-        VacationToDisplay AddVacation(VacationToAdd vacation);
+        void AddVacation(VacationToAdd vacation);
+        void DeleteVacationType(int id);
+        void AddVacationType(string vacationTypeName);
     }
 }
