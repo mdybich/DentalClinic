@@ -65,6 +65,11 @@ namespace DentalClinic.Services.Services
 
         public void AddLeave(LeaveToAdd leaveToAdd)
         {
+            if (leaveToAdd.StartDate > leaveToAdd.EndDate)
+            {
+                throw new LeaveException("Wybrano niewłaściwy zakres dat.");
+            }
+
             var isUserAlreadyHaveLeave = db.Leaves
                                             .Any(l => l.StartDate < leaveToAdd.EndDate
                                             && l.EndDate > leaveToAdd.StartDate
@@ -169,7 +174,7 @@ namespace DentalClinic.Services.Services
                 throw new LeaveTypeException("Nie można dodać rodzaju zwolnienia o pustej nazwie.");
             }
 
-            if (db.LeaveTypes.FirstOrDefault(v => v.Name.ToLower() == leaveTypeName.ToLower()) != null)
+            if (db.LeaveTypes.FirstOrDefault(v => v.Name.ToLower() == leaveTypeName.ToLower() && v.IsActive) != null) 
             {
                 throw new LeaveTypeException("Podany rodzaj zwolnienia już istnieje.");
             }

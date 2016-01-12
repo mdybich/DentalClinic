@@ -65,6 +65,9 @@ namespace DentalClinic.UI.ViewModels
                     case 3:
                         ShowWindow<RegistrantWindow>();
                         break;
+                    case 4:
+                        ShowWindow<ManagerWindow>();
+                        break;
                     default:
                         throw new ArgumentException("Incorrect Role");
                 }

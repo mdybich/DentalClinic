@@ -2,7 +2,6 @@
 using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
 using DentalClinic.Services.Services;
-using DentalClinic.UI.Interfaces;
 using GalaSoft.MvvmLight.CommandWpf;
 using DentalClinic.Services.Exceptions;
 using System.Windows;

@@ -65,6 +65,11 @@ namespace DentalClinic.Services.Services
 
         public void AddVacation(VacationToAdd vacationToAdd)
         {
+            if (vacationToAdd.StartDate > vacationToAdd.EndDate)
+            {
+                throw new VacationException("Wybrano niewłaściwy zakres dat.");
+            }
+
             var isUserAlreadyHaveVacation = db.Vacations
                                                 .Any(v => v.StartDate < vacationToAdd.EndDate
                                                 && v.EndDate > vacationToAdd.StartDate
@@ -169,7 +174,7 @@ namespace DentalClinic.Services.Services
                 throw new VacationTypeException("Nie można dodać rodzaju urlopu o pustej nazwie.");
             }
 
-            if (db.VacationTypes.FirstOrDefault(v => v.Name.ToLower() == vacationTypeName.ToLower()) != null)
+            if (db.VacationTypes.FirstOrDefault(v => v.Name.ToLower() == vacationTypeName.ToLower() && v.IsActive) != null)
             {
                 throw new VacationTypeException("Podany rodzaj urlopu już istnieje.");
             }

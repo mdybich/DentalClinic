@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using DentalClinic.Services.Helpers;
 using DentalClinic.Services.Interfaces;
-using System.Security.Cryptography;
 using DentalClinic.Data;
 
 namespace DentalClinic.Services.Services

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DentalClinic.UI.Views"
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         x:Name="AddVacationWindowName"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Dodaj urlop" Height="450" Width="300">
     <Window.DataContext>

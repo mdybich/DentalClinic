@@ -49,12 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\EntryException.cs" />
     <Compile Include="Exceptions\LeaveException.cs" />
     <Compile Include="Exceptions\LeaveTypeException.cs" />
     <Compile Include="Exceptions\UserException.cs" />
     <Compile Include="Exceptions\VacationException.cs" />
     <Compile Include="Exceptions\VacationTypeException.cs" />
     <Compile Include="Helpers\BasicUserToDisplay.cs" />
+    <Compile Include="Helpers\EntryToDisplay.cs" />
+    <Compile Include="Helpers\EntryToRaport.cs" />
+    <Compile Include="Helpers\EntryType.cs" />
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LeaveToAdd.cs" />
     <Compile Include="Helpers\LeaveToDisplay.cs" />
@@ -67,11 +71,13 @@
     <Compile Include="Helpers\VacationToDisplay.cs" />
     <Compile Include="Helpers\VacationTypeToDisplay.cs" />
     <Compile Include="Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Interfaces\IEntryService.cs" />
     <Compile Include="Interfaces\ILeaveService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IVacationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\EntryService.cs" />
     <Compile Include="Services\LeaveService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\VacationService.cs" />

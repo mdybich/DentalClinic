@@ -1,8 +1,7 @@
 namespace DentalClinic.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddedIsActiveFieldToDictionaries : DbMigration
     {
         public override void Up()
