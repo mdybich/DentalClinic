@@ -186,11 +186,11 @@ namespace DentalClinic.UI.ViewModels
             {
                 _vacationService.AddVacationType(NewVacationTypeName);
                 NewVacationTypeName = string.Empty;
-                MessageBox.Show("Poprawnie dodano nowy rodzaj urlopu.");
+                CustomMessageBox.CustomMessageBox.Show("Poprawnie dodano nowy rodzaj urlopu.");
             }
             catch(VacationTypeException exc)
             {
-                MessageBox.Show(exc.Message, "Błąd");
+                CustomMessageBox.CustomMessageBox.Show(exc.Message, "Błąd");
             }
 
             
@@ -203,11 +203,11 @@ namespace DentalClinic.UI.ViewModels
             {
                 _leaveService.AddLeaveType(NewLeaveTypeName);
                 NewLeaveTypeName = string.Empty;
-                MessageBox.Show("Poprawnie dodano nowy rodzaj zwolnienia.");
+                CustomMessageBox.CustomMessageBox.Show("Poprawnie dodano nowy rodzaj zwolnienia.");
             }
             catch(LeaveTypeException exc)
             {
-                MessageBox.Show(exc.Message, "Błąd");
+                CustomMessageBox.CustomMessageBox.Show(exc.Message, "Błąd");
             }
            
             RetrieveLeaveTypes();            

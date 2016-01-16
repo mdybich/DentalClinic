@@ -127,7 +127,7 @@ namespace DentalClinic.UI.ViewModels
             }
             catch(VacationException exc)
             {
-                MessageBox.Show(exc.Message, "Błąd");
+                CustomMessageBox.CustomMessageBox.Show(exc.Message, "Błąd");
             }
         }
         #endregion

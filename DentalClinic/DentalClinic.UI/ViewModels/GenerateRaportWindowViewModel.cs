@@ -54,6 +54,7 @@ namespace DentalClinic.UI.ViewModels
         public GenerateRaportWindowViewModel() : this(new EntryService())
         {
             ButtonAsignment();
+            RaportType = RaportType.SelectedTimeRange;
         }
 
         public GenerateRaportWindowViewModel(IEntryService entryService)
@@ -90,11 +91,11 @@ namespace DentalClinic.UI.ViewModels
                 document.Add(table);
                 document.Close();
 
-                MessageBox.Show("Poprawnie wygenerowano raport.");
+                CustomMessageBox.CustomMessageBox.Show("Poprawnie wygenerowano raport.");
             }
             catch(EntryException exc)
             {
-                MessageBox.Show(exc.Message, "Błąd");
+                CustomMessageBox.CustomMessageBox.Show(exc.Message, "Błąd");
             }
         }
 

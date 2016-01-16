@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         x:Name="AddUserWindowName"
         ResizeMode="NoResize"
+        Background="#484848"
         mc:Ignorable="d"
         Title="Dodaj użytkownika" Height="450" Width="300">
     <Window.DataContext>
@@ -26,22 +27,22 @@
             <RowDefinition Height ="*" />
             <RowDefinition Height ="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Login:" Margin="15"/>
-        <TextBox Grid.Row="0" Margin="5,15,5,15" Grid.Column="1" Text="{Binding Login}"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Imię:" Margin="15"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5,15,5,15" Text="{Binding FirstName}" />
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Nazwisko:" Margin="15"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="5,15,5,15" Text="{Binding LastName}" />
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Rola:" Margin="15"/>
-        <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Roles}"
+        <Label Grid.Row="0" Grid.Column="0" Content="Login:" Margin="15,20,15,10"/>
+        <TextBox Grid.Row="0" Margin="123,15,4.6,15" Text="{Binding Login}" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Imię:" Margin="15,20,15,10"/>
+        <TextBox Grid.Row="1" Margin="123,15,4.6,15" Text="{Binding FirstName}" Grid.ColumnSpan="2" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Nazwisko:" Margin="15,20,15,10"/>
+        <TextBox Grid.Row="2" Margin="123,15,4.6,15" Text="{Binding LastName}" Grid.ColumnSpan="2" />
+        <Label Grid.Row="3" Grid.Column="0" Content="Rola:" Margin="15,20,15,10"/>
+        <ComboBox Grid.Row="3" ItemsSource="{Binding Roles}"
                   DisplayMemberPath="Name" SelectedValuePath="Id"
-                  SelectedValue="{Binding SelectedRoleId}" Margin="5,15,5,15" />
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Hasło:" Margin="15"/>
-        <PasswordBox Grid.Row="4" Grid.Column="1" 
-                     Margin="5,15,5,15" PasswordChanged="PasswordBox_PasswordChanged"/>
-        <TextBlock Grid.Row="5" Grid.Column="0" Text="Potwierdź hasło:" Margin="15"/>
-        <PasswordBox Grid.Row="5" Grid.Column="1" 
-                     Margin="5,15,5,15" PasswordChanged="PasswordConfirmationBox_PasswordConfirmationChanged"/>
+                  SelectedValue="{Binding SelectedRoleId}" Margin="123,15,4.6,15" Grid.ColumnSpan="2" />
+        <Label Grid.Row="4" Grid.Column="0" Content="Hasło:" Margin="15,20,15,10"/>
+        <PasswordBox Grid.Row="4" 
+                     Margin="123,15,4.6,15" PasswordChanged="PasswordBox_PasswordChanged" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Potwierdź hasło:" Margin="15,20,15,10"/>
+        <PasswordBox Grid.Row="5" 
+                     Margin="123,15,4.6,15" PasswordChanged="PasswordConfirmationBox_PasswordConfirmationChanged" Grid.ColumnSpan="2"/>
         <Button Grid.Row="6" Grid.Column="0" Content="Anuluj" Margin="15"
                 Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddUserWindowName}"/>
         <Button Grid.Row="6" Grid.Column="1" Content="Zapisz" Margin="15" 

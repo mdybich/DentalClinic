@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        Background="#484848"
         x:Name="AdministratorWindowName"
         Title="Moduł administratora" Height="500" Width="800">
     <Window.DataContext>
@@ -29,6 +30,7 @@
                                 <TextBox.Style>
                                     <Style TargetType="{x:Type TextBox}">
                                         <Setter Property="Foreground" Value="Transparent"/>
+                                        <Setter Property="FontStyle" Value="Italic" />
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
                                                 <Setter Property="Foreground" Value="LightGray"/>
@@ -60,37 +62,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="3" Content="Zalogowano jako:" Margin="4.4,5,7,4.8"></Label>
-        <Label Grid.Row="0" Grid.Column="4" Content="{Binding DisplayName}" Margin="3,5,2.2,4.8"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="51,14,118,80.6" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
+        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Content="{Binding DisplayName}" Margin="10,14,5.2,80.6" Grid.RowSpan="2"></Label>
         <Button Grid.Row="0" Grid.Column="4" Content="Wyloguj"
                 Grid.ColumnSpan="2" Margin="127,10,4.6,9.8"
                 Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=AdministratorWindowName}"/>
-        <TabControl Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin ="10,10.2,12,10.4" BorderBrush="Gainsboro">
-            <TabControl.Resources>
-                <Style TargetType="TabItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="TabItem">
-                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="10,2"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
-                                    </Trigger>
-                                    <Trigger Property="IsSelected" Value="False">
-                                        <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
+        <TabControl Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin ="10,10.2,12,10.4">
             <TabItem Header="Użytkownicy">
                 <DataGrid ItemsSource="{Binding Users}" Margin="2" 
                           AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
@@ -158,7 +135,14 @@
         <Button Grid.Column="4" Grid.Row="1" Command="{Binding AddUserCommand}" 
                 Content="Dodaj nowego użytkownika" Margin="3,30.2,4.6,19.6" Grid.ColumnSpan="2"/>
         <Border Grid.Column="4" Grid.Row="2" Grid.RowSpan="2"
-                BorderBrush="LightSkyBlue" Background="LightCyan" BorderThickness="2,2,2,2" Margin="3,0.4,4.6,45" Grid.ColumnSpan="2">
+                BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7" Margin="3,0.4,4.6,45" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                    <GradientStop Color="#787878 " Offset="0.2"/>
+                    <GradientStop Color="#A8A8A8 " Offset="0.85"/>
+                    <GradientStop Color="#787878 " Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <StackPanel>
                 <TextBox Style="{StaticResource placeHolder}" Tag="Wpisz nazwę rodzaju zwolnienia"
                          Height="30" Margin="2 10" Text="{Binding NewLeaveTypeName}"/>
@@ -166,7 +150,14 @@
             </StackPanel>
         </Border>
         <Border Grid.Column="4" Grid.Row="4" Grid.RowSpan="2"
-                BorderBrush="LightSkyBlue" Background="LightCyan" BorderThickness="2,2,2,2" Margin="3,0,4.6,45.4" Grid.ColumnSpan="2">
+                BorderBrush="Black"  BorderThickness="2,2,2,2" Margin="3,0,4.6,45.4" CornerRadius="7" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                    <GradientStop Color="#787878 " Offset="0.2"/>
+                    <GradientStop Color="#A8A8A8 " Offset="0.85"/>
+                    <GradientStop Color="#787878 " Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <StackPanel>
                 <TextBox Style="{StaticResource placeHolder}" Tag="Wpisz nazwę rodzaju urlopu"
                          Height="30" Margin="2 10" Text="{Binding NewVacationTypeName}"/>

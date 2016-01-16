@@ -120,6 +120,8 @@ namespace DentalClinic.UI.ViewModels
 
                 Messenger.Default.Send<LeaveToAdd>(leaveToAdd);
 
+                
+
                 if (window != null)
                 {
                     window.Close();
@@ -127,7 +129,7 @@ namespace DentalClinic.UI.ViewModels
             }
             catch(LeaveException exc)
             {
-                MessageBox.Show(exc.Message, "Błąd");
+                CustomMessageBox.CustomMessageBox.Show(exc.Message, "Błąd");
             }
         }
         #endregion

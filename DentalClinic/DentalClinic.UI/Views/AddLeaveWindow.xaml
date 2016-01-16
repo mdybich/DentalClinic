@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         x:Name="AddLeaveWindowName"
         ResizeMode="NoResize"
+        Background="#484848"
         mc:Ignorable="d"
         Title="Dodaj nowe zwolnienie" Height="450" Width="300">
     <Window.DataContext>
@@ -26,19 +27,19 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Pracownik:" Margin="15"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Pracownik:" Margin="15,20,15.2,10"/>
         <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Users}"
                   DisplayMemberPath="FullName" SelectedValuePath="Id"
                   SelectedValue="{Binding SelectedUserId}"  Margin="15"></ComboBox>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Rodzaj zwolnienia:" Margin="15"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Rodzaj zwolnienia:" Margin="15,20,15.2,10"/>
         <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding LeavesTypes}" 
                   DisplayMemberPath="Name" SelectedValuePath="Id"
                   SelectedValue="{Binding SelectedLeaveTypeId}" Margin="15"></ComboBox>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Data rozpoczęcia:" Margin="15"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Data rozpoczęcia:" Margin="15,19,15.2,11"/>
         <DatePicker Grid.Row="2" Grid.Column="1" Margin="15" SelectedDate="{Binding StartDate}" DisplayDateEnd="{Binding EndDate}"></DatePicker>
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Data zakończenia:" Margin="15"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Data zakończenia:" Margin="15,19,15.2,11"/>
         <DatePicker Grid.Row="3" Grid.Column="1" Margin="15" SelectedDate="{Binding EndDate}" DisplayDateStart="{Binding StartDate}"></DatePicker>
-        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Komentarz: " Margin="15"/>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Komentarz: " Margin="15"/>
         <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Comment}" Margin="15,0,15,0"/>
         <Button Grid.Row="6" Grid.Column="0" Content="Anuluj" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=AddLeaveWindowName}" Margin="15"/>
         <Button Grid.Row="6" Grid.Column="1" Content="Zapisz" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=AddLeaveWindowName}" Margin="15"/>

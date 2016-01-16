@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         mc:Ignorable="d"
         x:Name="WorkerWindowName"
+        Background="#484848"
         ResizeMode="NoResize"
         Title="Moduł pracownika" Height="500" Width="800">
     <Window.DataContext>
@@ -27,36 +28,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="3" Content="Zalogowano jako:" Margin="1.4,5,8.4,4.8"></Label>
-        <Label Grid.Row="0" Grid.Column="4" Content="{Binding DisplayName}" Margin="1.6,5,4.6,4.8"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="121,14,10.4,137.4" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
+        <Label Grid.Row="0" Grid.Column="4" Content="{Binding DisplayName}" Margin="5.6,14,0.2,141.4" Grid.RowSpan="2"></Label>
         <Button Grid.Row="0" Grid.Column="4" Content="Wyloguj" Grid.ColumnSpan="2" Margin="152.6,10,9.6,9.8"
                 Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=WorkerWindowName}"/>
-        <TabControl Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="6" Margin ="10,10.2,9.6,10.4" BorderBrush="Gainsboro">
-            <TabControl.Resources>
-                <Style TargetType="TabItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="TabItem">
-                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="10,2"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
-                                    </Trigger>
-                                    <Trigger Property="IsSelected" Value="False">
-                                        <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
+        <TabControl Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="6" Margin ="10,10.2,9.6,10.4">
             <TabItem Header="Moje zwolnienia">
                 <DataGrid ItemsSource="{Binding Leaves}" Margin="2" 
                           AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 

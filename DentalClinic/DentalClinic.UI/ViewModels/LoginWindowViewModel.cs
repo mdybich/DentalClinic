@@ -81,7 +81,7 @@ namespace DentalClinic.UI.ViewModels
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("Niepoprawny login bądź hasło");
+                CustomMessageBox.CustomMessageBox.Show("Niepoprawny login lub hasło.", "Błąd");
             }
         }
 

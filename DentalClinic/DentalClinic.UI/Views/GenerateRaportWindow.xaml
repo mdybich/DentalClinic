@@ -8,6 +8,7 @@
         xmlns:src="clr-namespace:DentalClinic.UI.Enums"
         xmlns:cvr="clr-namespace:DentalClinic.UI.Converters"
         mc:Ignorable="d"
+        Background="#484848"
         ResizeMode="NoResize"
         x:Name="GenerateRaportWindowName"
         Title="Generator raportów" Height="300" Width="300">
@@ -32,7 +33,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Content="Generuj raport zwolnień i urlopów z:" Margin="10,10,8.6,10.4" />
-        <RadioButton Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" GroupName="RaportOption" Margin="10,9.6,8.6,10"
+        <RadioButton Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" GroupName="RaportOption" Margin="10,9.6,8.6,10" 
                      IsChecked="{Binding RaportType, Converter={StaticResource RadioButtonCheckedConverter},
                     ConverterParameter={x:Static src:RaportType.CurrentYear}}"
                      >Z bieżącego roku</RadioButton>
@@ -40,9 +41,9 @@
                      IsChecked="{Binding RaportType, Converter={StaticResource RadioButtonCheckedConverter},
                     ConverterParameter={x:Static src:RaportType.SelectedTimeRange}}"
                      >Z podanego zakresu dat:</RadioButton>
-        <Label Grid.Row="3" Grid.Column="0" Margin="20,0,0,25" Content="Od:" />
+        <Label Grid.Row="3" Grid.Column="0" Margin="20,3.6,97.4,21" Content="Od:" Grid.ColumnSpan="2" />
         <DatePicker Grid.Row="3" Grid.Column="1" Margin="0,0,0,25" SelectedDate="{Binding StartDate}" DisplayDateEnd="{Binding EndDate}" />
-        <Label Grid.Row="3" Grid.Column="2" Margin="20,0,0,25" Content="Do:" />
+        <Label Grid.Row="3" Grid.Column="2" Margin="19.6,3.6,0.2,21" Content="Do:" />
         <DatePicker Grid.Row="2" Grid.Column="2" Margin="48.6,54,3.6,25" SelectedDate="{Binding EndDate}" DisplayDateStart="{Binding StartDate}" Grid.ColumnSpan="2" Grid.RowSpan="2" />
         <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Content="Generuj Raport" Margin="5.8,10,3.6,10.4"
                 Command="{Binding GenerateRaportCommand}" />
