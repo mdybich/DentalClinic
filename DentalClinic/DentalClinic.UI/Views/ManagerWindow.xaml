@@ -34,13 +34,10 @@
                 Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=ManagerWindowName}" />
         <Button Grid.Row="1" Grid.Column="5" Content="Generuj raport" Margin="5, 55"
                 Command="{Binding GenerateRaportCommand}" />
-        <TabControl Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="5" Margin ="10,10.2,13,25.4" BorderBrush="Gainsboro">
+        <TabControl Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="5" Margin ="10,10.2,13,25.4">
 
             <TabItem Header="Oczekujące">
-                <DataGrid ItemsSource="{Binding PendingEntries}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True" CanUserReorderColumns="False"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding PendingEntries}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Pracownik" Binding="{Binding UserDisplayName}" />
                         <DataGridTextColumn Header="Rodzaj" Binding="{Binding EntryTypeName}" />
@@ -50,11 +47,28 @@
                         <DataGridTextColumn Header="Komentarz" MaxWidth="100" Binding="{Binding Comment}">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
-                        <DataGridTemplateColumn Width="75">
+                        <DataGridTemplateColumn Width="90">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Zatwierdź"
@@ -64,7 +78,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="75">
+                        <DataGridTemplateColumn Width="90">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Odrzuć"
@@ -78,10 +92,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Zatwierdzone">
-                <DataGrid ItemsSource="{Binding AcceptedEntries}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding AcceptedEntries}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Pracownik" Binding="{Binding UserDisplayName}" />
                         <DataGridTextColumn Header="Rodzaj" Binding="{Binding EntryTypeName}" />
@@ -91,7 +102,24 @@
                         <DataGridTextColumn Header="Komentarz" MaxWidth="200" Binding="{Binding Comment}">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
@@ -99,10 +127,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Odrzucone">
-                <DataGrid ItemsSource="{Binding RejectedEntries}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding RejectedEntries}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Pracownik" Binding="{Binding UserDisplayName}" />
                         <DataGridTextColumn Header="Rodzaj" Binding="{Binding EntryTypeName}" />
@@ -112,7 +137,24 @@
                         <DataGridTextColumn Header="Komentarz" MaxWidth="200" Binding="{Binding Comment}">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>

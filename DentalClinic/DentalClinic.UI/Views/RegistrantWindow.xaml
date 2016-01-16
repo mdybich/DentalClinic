@@ -48,7 +48,24 @@
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="83">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
@@ -67,10 +84,27 @@
                         <DataGridTextColumn Header="Data zakończenia" Binding="{Binding EndDate}" />
                         <DataGridTextColumn Header="Zastępca" Binding="{Binding SubstituteUserFullName}" />
                         <DataGridTextColumn Header="Zatwierdzono" Binding="{Binding IsApproved}" />
-                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="83">
+                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}" MaxWidth="90">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>

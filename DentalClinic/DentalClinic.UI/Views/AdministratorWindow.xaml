@@ -62,17 +62,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="51,14,118,80.6" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
-        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Content="{Binding DisplayName}" Margin="10,14,5.2,80.6" Grid.RowSpan="2"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="51,14,118,80.6" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Content="{Binding DisplayName}" Margin="10,14,5.2,80.6" Grid.RowSpan="2" />
         <Button Grid.Row="0" Grid.Column="4" Content="Wyloguj"
                 Grid.ColumnSpan="2" Margin="127,10,4.6,9.8"
                 Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=AdministratorWindowName}"/>
         <TabControl Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin ="10,10.2,12,10.4">
             <TabItem Header="Użytkownicy">
-                <DataGrid ItemsSource="{Binding Users}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding Users}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Login" Binding="{Binding Login}" />
                         <DataGridTextColumn Header="Imię" Binding="{Binding FirstName}" />
@@ -92,10 +89,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Rodzaje urlopów">
-                <DataGrid ItemsSource="{Binding VacationTypes}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding VacationTypes}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" Width="150" />
                         <DataGridTemplateColumn Width="100">
@@ -112,10 +106,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Rodzaje zwolnień">
-                <DataGrid ItemsSource="{Binding LeaveTypes}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding LeaveTypes}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" Width="150" />
                         <DataGridTemplateColumn Width="100">

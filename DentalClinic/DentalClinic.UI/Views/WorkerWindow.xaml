@@ -28,16 +28,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="121,14,10.4,137.4" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
-        <Label Grid.Row="0" Grid.Column="4" Content="{Binding DisplayName}" Margin="5.6,14,0.2,141.4" Grid.RowSpan="2"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Zalogowano jako:" Margin="121,14,10.4,137.4" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <Label Grid.Row="0" Grid.Column="4" Content="{Binding DisplayName}" Margin="5.6,14,0.2,141.4" Grid.RowSpan="2" />
         <Button Grid.Row="0" Grid.Column="4" Content="Wyloguj" Grid.ColumnSpan="2" Margin="152.6,10,9.6,9.8"
                 Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=WorkerWindowName}"/>
         <TabControl Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="6" Margin ="10,10.2,9.6,10.4">
             <TabItem Header="Moje zwolnienia">
-                <DataGrid ItemsSource="{Binding Leaves}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Moccasin" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding Leaves}" Margin="2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Rodzaj" Binding="{Binding LeaveTypeName}" />
                         <DataGridTextColumn Header="Data rozpoczęcia" Binding="{Binding StartDate}" />
@@ -47,7 +44,24 @@
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
@@ -55,10 +69,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Moje urlopy">
-                <DataGrid ItemsSource="{Binding Vacations}" Margin="2" 
-                          AutoGenerateColumns="False" AlternatingRowBackground="Plum" 
-                          GridLinesVisibility="None" IsReadOnly="True"
-                          CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid ItemsSource="{Binding Vacations}" Margin="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Rodzaj" Binding="{Binding VacationTypeName}" />
                         <DataGridTextColumn Header="Data rozpoczęcia" Binding="{Binding StartDate}" />
@@ -68,7 +79,24 @@
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comment}">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
+                                    <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                    <Setter Property="Padding" Value="10,0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
