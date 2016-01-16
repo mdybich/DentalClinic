@@ -10,6 +10,7 @@ namespace DentalClinic.UI.Views
     {
         public WorkerWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
     }

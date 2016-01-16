@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DentalClinic.UI.Views"
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         x:Name="AddUserWindowName"
+        Icon="DentalClinicIcon.ico"
         ResizeMode="NoResize"
         Background="#484848"
         mc:Ignorable="d"

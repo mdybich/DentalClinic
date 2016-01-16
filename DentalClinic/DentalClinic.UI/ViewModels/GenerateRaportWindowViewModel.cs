@@ -78,7 +78,7 @@ namespace DentalClinic.UI.ViewModels
 
                 var table = CreateRaportTable(document);
 
-                var fs = new FileStream(string.Format("Raport z dnia {0}.pdf", DateTime.Now.ToString("dd.MM.yyyy HH mm")),
+                var fs = new FileStream(string.Format("Raporty/Raport z dnia {0}.pdf", DateTime.Now.ToString("dd.MM.yyyy HH-mm")),
                                      FileMode.Create, FileAccess.Write, FileShare.None);
 
                 var writer = PdfWriter.GetInstance(document, fs);

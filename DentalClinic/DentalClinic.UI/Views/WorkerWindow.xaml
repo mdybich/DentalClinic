@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DentalClinic.UI.ViewModels"
         mc:Ignorable="d"
         x:Name="WorkerWindowName"
+        Icon="DentalClinicIcon.ico"
         Background="#484848"
         ResizeMode="NoResize"
         Title="Moduł pracownika" Height="500" Width="800">

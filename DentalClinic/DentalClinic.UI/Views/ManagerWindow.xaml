@@ -9,6 +9,7 @@
         Background="#484848"
         ResizeMode="NoResize"
         x:Name="ManagerWindowName"
+        Icon="DentalClinicIcon.ico"
         Title="Moduł kierownika" Height="500" Width="900">
     <Window.DataContext>
         <viewModels:ManagerWindowViewModel />

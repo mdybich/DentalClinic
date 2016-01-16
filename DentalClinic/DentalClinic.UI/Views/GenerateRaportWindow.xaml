@@ -9,6 +9,7 @@
         xmlns:cvr="clr-namespace:DentalClinic.UI.Converters"
         mc:Ignorable="d"
         Background="#484848"
+        Icon="DentalClinicIcon.ico"
         ResizeMode="NoResize"
         x:Name="GenerateRaportWindowName"
         Title="Generator raportów" Height="300" Width="300">
